@@ -20,6 +20,14 @@ class Estudiantes
     $this->con=new Conexion();
   }
 
+  public function set($atributo,$contenido){
+    $this->$atributo=$contenido;
+  }
+
+  public function get($atributo){
+    return $this->$atributo;
+  }
+
   public function listar(){
     $sql="SELECT t1.*,t2.nombre as nombre_seccion from estudiantes t1 inner join secciones t2 on t1.id_seccion=t2.id";
     $this->con->consultaRetorno($sql);
@@ -43,9 +51,12 @@ class Estudiantes
   }
 
   public function view(){
-    $sql="SELECT t1.*,t2.nombre as nombre_seccion FROM estudiantes t1 INNER JOIN secciones t2 ON t1.id_seccion=t2.id WHERE id='($this->id)'";
+    $sql="SELECT t1.*,t2.nombre as nombre_seccion
+    FROM estudiantes t1 INNER JOIN secciones t2 ON
+     t1.id_seccion=t2.id WHERE t1.id='($this->id)'";
     $datos=$this->con->consultaRetorno($sql);
-    return $datos;
+    $row=mysqli_fetch_assoc($datos);
+    return $row;
 
   }
 }
