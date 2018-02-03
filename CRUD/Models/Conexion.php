@@ -6,21 +6,23 @@
 class Conexion
 {
   private $datos= array(
-    "host" =>"locahost" ,
+    "host" =>"localhost" ,
     "user"=>"root",
-    "pass"=>"carfer",
+    "pass"=>"",
     "db"=>"proyecto"
  );
 
  private $con;
 
  public function __construct(){
-   $this->con=new \mysqli($this->datos['host'],
-   $this->datos['user'],$this->datos['pass'],$this->datos['db']);
+   $this->con = new \MySQLi($this->datos['host'],$this->datos['user'],$this->datos['pass'],$this->datos['db']);
+   if($this->con){
+     echo "exitus";
+   }
  }
 
   public function consultaSimple($sql){
-    $this->con=query($sql);
+    $this->con->query($sql);
   }
 
   public function consultaRetorno($sql){

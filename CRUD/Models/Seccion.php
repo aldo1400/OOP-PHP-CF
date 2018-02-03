@@ -38,7 +38,17 @@ class Seccion
     $this->con->consultaRetorno($sql);
   }
 
-  public function
+  public function edit(){
+    $sql="UPDATE FROM secciones SET nombre='{$this->nombre}' WHERE id='{$this->id}'";
+    $this->con=consultaSimple();
+  }
+
+  public function view(){
+    $sql="SELECT * FROM secciones WHERE id='{$this->id}'";
+    $datos=$this->con->consultaRetorno($datos);
+    $row=mysqli_fetch_assoc($datos);
+    return $row;
+  }
 }
 
  ?>
