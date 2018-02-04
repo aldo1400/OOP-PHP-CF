@@ -1,7 +1,6 @@
 <?php namespace Models;
 
 /**
- *
  */
 class Estudiante
 {
@@ -33,7 +32,7 @@ public function hola(){
 
   public function listar(){
     $sql="SELECT t1.*,t2.nombre as nombre_seccion from estudiantes t1 inner join secciones t2 on t1.id_seccion=t2.id";
-    $this->con->consultaRetorno($sql);
+    $datos=$this->con->consultaRetorno($sql);
     return $datos;
   }
 

@@ -16,9 +16,7 @@ class Conexion
 
  public function __construct(){
    $this->con = new \MySQLi($this->datos['host'],$this->datos['user'],$this->datos['pass'],$this->datos['db']);
-   if($this->con){
-     echo "exitus";
-   }
+   
  }
 
   public function consultaSimple($sql){
