@@ -43,12 +43,16 @@ public function hola(){
   }
 
   public function delete(){
-    $sql="DELETE * FROM estudiantes WHERE id='{$this->id}'";
+    $sql="DELETE FROM estudiantes WHERE id='{$this->id}'";
     $this->con->consultaSimple($sql);
   }
 
   public function edit(){
-    $sql="UPDATE estudiantes SET nombre='{$this->nombre}',edad='{$this->edad},promedio='{$this->promedio}',id_seccion='{$this->id_seccion}' WHERE id='{$this->id}'";
+
+    $sql="UPDATE estudiantes SET nombre='{$this->nombre}',edad='{$this->edad}',promedio='{$this->promedio}',id_seccion='{$this->id_seccion}' WHERE id='{$this->id}'";
+
+
+
     $this->con->consultaSimple($sql);
   }
 
