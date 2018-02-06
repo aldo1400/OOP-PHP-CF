@@ -29,8 +29,8 @@ class Seccion
   }
 
   public function add(){
-    $sql="INSERT INTO secciones (id.nombre) VALUES (null,'{$this->nombre}')";
-    $this->con->consultaSimple();
+    $sql="INSERT INTO secciones (id,nombre) VALUES (null,'{$this->nombre}')";
+    $this->con->consultaSimple($sql);
   }
 
   public function delete(){
@@ -40,7 +40,7 @@ class Seccion
 
   public function edit(){
     $sql="UPDATE FROM secciones SET nombre='{$this->nombre}' WHERE id='{$this->id}'";
-    $this->con=consultaSimple();
+    $this->con=consultaSimple($sql);
   }
 
   public function view(){

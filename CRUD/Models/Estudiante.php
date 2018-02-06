@@ -37,19 +37,19 @@ public function hola(){
   }
 
   public function add(){
-    $sql="INSERT INTO estudiantes(id,nombre,edad,promedio,imagen,id_seccion,fecha) VALUES (null,'{$this->nombre}',
-    '{$this->edad}','{$this->promedio}','{$this->imagen}','{$this->id_seccion}',NOW())";
-    $this->con->consultaSimple();
+    $sql="INSERT INTO estudiantes(id,nombre,edad,promedio,id_seccion,imagen,fecha) VALUES (null,'{$this->nombre}',
+    '{$this->edad}','{$this->promedio}','{$this->id_seccion}','{$this->imagen}',NOW())";
+    $this->con->consultaSimple($sql);
   }
 
   public function delete(){
     $sql="DELETE * FROM estudiantes WHERE id='{$this->id}'";
-    $this->con->consultaSimple();
+    $this->con->consultaSimple($sql);
   }
 
   public function edit(){
     $sql="UPDATE estudiantes SET nombre='{$this->nombre}',edad='{$this->edad},promedio='{$this->promedio}',id_seccion='{$this->id_seccion}' WHERE id='{$this->id}'";
-    $this->con->consultaSimple();
+    $this->con->consultaSimple($sql);
   }
 
   public function view(){
